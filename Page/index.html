@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Memorial</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background: linear-gradient(135deg,#030e22, #111F39,#547F9F, #F8A26F, #FD6D30, #B33B2A);
+      color: white;
+      line-height: 1.6;
+      /*平滑滚动*/
+      scroll-behavior: smooth;
+    }
+
+    header {
+      padding: 20px 0;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+
+    .banner {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 1px solid #d0d0d0;
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    .nav {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      padding: 5px 0;
+      position: relative;
+    }
+
+    .nav a:hover {
+      color: silver;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: whitesmoke;
+      transition: width 0.3s;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+      background-attachment: #fffef7;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.6s ease;
+    }
+
+    section {
+      padding: 30px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .carousel {
+      max-width: 100%;
+      height: 400px;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #d0d0d0;
+    }
+
+    .video video {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #d0d0d0;
+    }
+
+    audio {
+      display: none;
+    }
+
+    .back-to-top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: #111F39;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: content;
+      font-size: 24px;
+      line-height: 50px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      z-index: 999;
+      padding: 0;
+    }
+
+    .back-to-top:hover {
+      background-color: #547F9F;
+      transform: translateY(-3px);
+    }
+
+    .back-to-top:active {
+      transform: translateY(1px);
+    }
+
+    .back-to-top.show {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav {
+      gap: 10px;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .banner {
+      max-height: 250px;
+    }
+
+    .carousel {
+      height: 250px;
+    }
+
+    .welcome-message {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .welcome-message h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      font-weight: normal;
+    }
+
+    .welcome-message p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .username {
+      color: whitesmoke;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .back-to-top {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      bottom: 20px;
+      right: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Memorial with RIIZE</h1>
+    <img src="" alt="" class="banner"></img>
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="quotes.html">Notes</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="contact.html">Messages</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="welcome-message">
+      <h2>- Welcome Back -</h2>
+      <p id="personalGreeting" class="personalGreeting">Dear <span class="username" id="displayUsername">Guest</span>,
+        welcome to your secret
+        archive. Your private collection awaits.</p>
+      <p>Here you can revisit all your cherished memories.</p>
+    </div>
+    <section class="intro">
+      <h2>Our Story</h2>
+      <p></p>
+    </section>
+
+    <section class="carousel">
+      <div id="carousel">
+        <p style="text-align: center;">Memories Carousel</p>
+      </div>
+    </section>
+
+    <button class="back-to-top" title="Fly Up"><</button>
+
+    <section class="video">
+      <h2>Videos with RIIZE</h2>
+      <video controls width="800">
+        <source src="" type="">
+      </video>
+    </section>
+  </main>
+
+  <audio autoplay loop>
+    <source src=" " type="">
+  </audio>
+  <script>
+    function getUsernameFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('username');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      let username = getUsernameFromURL() || localStorage.getItem('username');
+      if (username) {
+        localStorage.setItem('username', username);
+        document.getElementById('displayUsername').textContent = username;
+      } else {
+        document.getElementById('personalGreeting').textContent = 'Welcome to our memorial site.';
+        document.getElementById('displayUsername').style.display = 'none';
+      }
+      const backToTopButton = document.querySelector('.back-to-top');
+
+      window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 300 && window.pageYOffset > 0) {
+          backToTopButton.classList.add('show');
+        } else {
+          backToTopButton.classList.remove('show');
+        }
+      });
+
+      backToTopButton.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        setTimeout(() => {
+          backToTopButton.classList.remove('show');
+        }, 300);
+      });
+    });
+  </script>
+  <script src="js/main.js"></script>
+  <script src="js/carousel.js"></script>
+</body>
+
+</html>

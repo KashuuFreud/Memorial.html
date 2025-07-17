@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Timeline</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background: linear-gradient(135deg,#030e22, #111F39,#547F9F, #F8A26F, #FD6D30, #B33B2A);
+      color: white;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      padding: 20px 20px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.0rem;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+
+    .banner {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 1px solid #d0d0d0;
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    .nav {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      padding: 5px 0;
+      position: relative;
+    }
+
+    .nav a:hover {
+      color: silver;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: whitesmoke;
+      transition: width 0.3s;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.6s ease;
+      color: white;
+    }
+
+    .timeline {
+      position: relative;
+      padding: 40px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: #547F9F;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1px;
+    }
+
+    .timeline-item {
+      padding: 20px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .timeline-date {
+      font-weight: bold;
+      color: #111F39;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .timeline-date::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: #FD6D30;
+      border-radius: 50%;
+      position: absolute;
+      left: -10px;
+      top: 30px;
+      border: 3px solid #547F9F;
+    }
+
+    .timeline-item:nth-child(even) .timeline-date::before {
+      left: auto;
+      right: -10px;
+    }
+
+    .timeline-title {
+      color: #111F39;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .timeline-desc {
+      color: #555;
+      line-height: 1.5;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+<body>
+  <header>
+    <h1>Time with RIIZE</h1>
+    <!--<img src="" alt="Timeline Banner" class="banner">-->
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="quotes.html">Notes</a></li>
+        <li><a href="timeline.html" class="active">Timeline</a></li>
+        <li><a href="contact.html">Messages</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Our Journey Together</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">June 2023</div>
+          <h3 class="timeline-title">First Meeting</h3>
+          <p class="timeline-desc">The day we first met at the SM Rookies showcase. Your performance of "Cheers" left me speechless.</p>
+        </div>
+      </div>
+
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">September 2023</div>
+          <h3 class="timeline-title">Debut Announcement</h3>
+          <p class="timeline-desc">RIIZE officially announced their debut lineup. The excitement was unforgettable!</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">November 2023</div>
+          <h3 class="timeline-title">First Fan Meeting</h3>
+          <p class="timeline-desc">Attended my first RIIZE fan meeting. Got to see "Get A Guitar" performed live.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">January 2024</div>
+          <h3 class="timeline-title">First Comeback</h3>
+          <p class="timeline-desc">"Love 119" era began. The emotional performances touched everyone's hearts.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">May 2024</div>
+          <h3 class="timeline-title">Fan Project Completion</h3>
+          <p class="timeline-desc">Our fan project reached its goal. Seeing RIIZE react to it was priceless.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+</body>

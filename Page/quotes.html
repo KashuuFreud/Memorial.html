@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #030e22, #111F39, #547F9F, #F8A26F, #FD6D30, #B33B2A);
+      color: white;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      padding: 20px 0;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.0rem;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+
+    .banner {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 1px solid #d0d0d0;
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    .nav {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      padding: 5px 0;
+      position: relative;
+    }
+
+    .nav a:hover {
+      color: silver;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: whitesmoke;
+      transition: width 0.3s;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: transparent;
+      border: 1px solid white;
+      box-shadow: 0 4px 12px #F8A26F;
+      animation: fadeIn 0.6s ease;
+      color: white;
+      position: relative;
+    }
+
+    .quote-container {
+      margin-top: 30px;
+    }
+
+    .quote-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-left: 4px solid silver;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .quote-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(248, 162, 111, 0.3);
+    }
+
+    .quote-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .quote-author {
+      text-align: right;
+      font-weight: bold;
+      color: white;
+    }
+
+    .quote-date {
+      font-size: 0.9rem;
+      color: white;
+      margin-top: 5px;
+      text-align: right;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 2px;
+      background: #F8A26F;
+      margin: 15px auto;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>RIIZE Notes</h1>
+    <!--<img src="" alt="Quotes Banner" class="banner">-->
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="quotes.html" class="active">Notes</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="contact.html">Messages</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Memorable Quotes</h2>
+
+    <div class="quote-container">
+      <div class="quote-card">
+        <p class="quote-text">"Memories are like the stars - even when you can't see them, they're always there."</p>
+        <p class="quote-author">- Shotaro</p>
+        <p class="quote-date">2023.11.15</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">"The reason we practice so hard is because we want to show our best selves to BRIIZE."</p>
+        <p class="quote-author">- Eunseok</p>
+        <p class="quote-date">2024.01.22</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">"Every moment with RIIZE members feels like a new adventure."</p>
+        <p class="quote-author">- Sungchan</p>
+        <p class="quote-date">2023.10.08</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">"Our journey has just begun, but I know the best is yet to come."</p>
+        <p class="quote-author">- Wonbin</p>
+        <p class="quote-date">2023.12.30</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">"No matter how hard it gets, remember why we started this odyssey."</p>
+        <p class="quote-author">- Sohee</p>
+        <p class="quote-date">2024.03.05</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">"Music is our language, and performance is how we speak to the world."</p>
+        <p class="quote-author">- Anton</p>
+        <p class="quote-date">2023.09.25</p>
+      </div>
+
+
+    </div>
+  </main>
+
+</body>
+
+</html>

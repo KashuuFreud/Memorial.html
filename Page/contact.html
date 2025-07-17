@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #030e22, #111F39, #547F9F, #F8A26F, #FD6D30, #B33B2A);
+      color: white;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      padding: 20px 0;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.0rem;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+
+    .banner {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 1px solid #d0d0d0;
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    .nav {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      padding: 5px 0;
+      position: relative;
+    }
+
+    .nav a:hover {
+      color: silver;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: whitesmoke;
+      transition: width 0.3s;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: transparent;
+      border: 1px solid white;
+      box-shadow: 0 4px 12px #F8A26F;
+      animation: fadeIn 0.6s ease;
+      color: white;
+      position: relative;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 12px;
+      border: 1px solid #d0d0d0;
+      border-radius: 4px;
+      font-size: 16px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      max-height: 300px;
+      width: 100%;
+      overflow: auto;
+      resize: none;
+    }
+
+    .submit-btn {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 4px;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      align-self: center;
+      margin-top: 20px;
+    }
+
+    .submit-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      transform: translateY(-2px);
+      /* 悬停上浮效果 */
+    }
+
+    .submit-btn:active {
+      transform: translateY(1px);
+      /* 点击下沉效果 */
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+      color: white;
+    }
+
+    .contact-info h3 {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    #previewArea {
+      display: none;
+      padding: 30px;
+      border: 1px solid white;
+      margin-top: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      min-height: calc(100vh - 250px);
+      /* 动态计算最小高度 */
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    #previewArea h3 {
+      margin-bottom: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    #previewArea strong {
+      color: #F8A26F;
+      margin-right: 10px;
+    }
+
+    .preview-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .preview-buttons button {
+      flex: 1;
+    }
+
+    #previewContent {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      width: 100%;
+      display: block;
+    }
+
+    #thankYou {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      margin-top: 20px;
+      min-height: calc(100vh - 250px);
+      /* 动态计算最小高度 */
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    /* 添加感谢内容居中容器 */
+    .thank-you-content {
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #thankYou h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+
+    .contact-info h3 {
+      color: white;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    /* 调整感谢页面联系信息位置 */
+    #thankYou .contact-info {
+      margin: 30px auto;
+      max-width: 80%;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width:100%) {
+      .container {
+        padding: 20px;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>A Letter to RIIZE</h1>
+    <!--<img src="" alt="Contact Banner" class="banner">-->
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="quotes.html">Notes</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="contact.html" class="active">Messages</a></li>
+      </ul>
+  </header>
+
+  <main class="container">
+    <h2>Leave Your Message</h2>
+    <form class="contact-form" id="messageForm">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="receiver">Write to</label>
+        <input type="text" id="receiver" name="receiver" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Preview</button>
+    </form>
+
+    <div id="previewArea">
+      <h3>Preview Your Message</h3>
+      <p><strong>From:</strong><span id="previewName"></span></p>
+      <p><strong>To:</strong><span id="previewReceiver"></span></p>
+      <p><strong>Message:</strong></p>
+      <div id="previewContent"
+        style="white-space: pre-wrap;margin-top: 10px;padding: 10px;background-color: rgb(0,0,0,0.2);border-radius: 4px;">
+      </div>
+
+      <div class="preview-buttons">
+        <button class="submit-btn eidt" onclick="editMessage()" >Edit</button>
+        <button class="submit-btn confirm" >Confirm Submit</button>
+      </div>
+    </div>
+
+
+    <div class="contact-info">
+      <h3>Other Ways to Reach Us</h3>
+      <p>Phone : +1 (234) 67-999999</p>
+      <p>Adress : 904 Luv Briize Road, Odessy, LY 23904, World</p>
+    </div>
+
+    <div id="thankYou">
+      <div class="thank-you-content">
+        <h2>Thank You for Your Message!</h2>
+        <p>RIIZE Will Get back to You Soon.</p>
+        <div class="contact-info">
+          <h3>RIIZE & BRIIZE</h3>
+          <p>chase for our Odessy</p>
+          <p>from 2023.09.04 to forever</p>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="window.location.href='contact.html'" style="margin-top: 20px;">Back</button>
+    </div>
+    </div>
+
+
+  </main>
+
+  <script>
+    // 页面加载完成后执行
+    document.addEventListener('DOMContentLoaded', function () {
+      // 绑定表单提交事件
+      document.getElementById('messageForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        previewMessage();
+      });
+
+      // 绑定确认提交按钮事件
+      document.querySelector('.confirm').addEventListener('click', submitMessage);
+
+      // 绑定编辑按钮事件
+      document.querySelector('.edit').addEventListener('click', editMessage);
+
+      // 绑定返回按钮事件
+      document.querySelector('#thankYou button').addEventListener('click', function () {
+        window.location.href = 'contact.html';
+      });
+    });
+
+    // 预览消息函数
+    function previewMessage() {
+      const name = document.getElementById('name').value.trim();
+      const receiver = document.getElementById('receiver').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // 验证表单
+      if (!name || !receiver || !message) {
+        alert('Please fill in all fields!');
+        return;
+      }
+
+      // 显示预览内容
+      document.getElementById('previewName').textContent = name;
+      document.getElementById('previewReceiver').textContent = receiver;
+      document.getElementById('previewContent').textContent = message;
+
+      // 切换显示
+      document.getElementById('messageForm').style.display = 'none';
+      document.getElementById('previewArea').style.display = 'block';
+      document.getElementById('thankYou').style.display = 'none';
+    }
+
+    // 提交消息函数
+    function submitMessage(e) {
+      e.preventDefault();
+
+      // 获取预览数据
+      const messageData = {
+        name: document.getElementById('previewName').textContent,
+        receiver: document.getElementById('previewReceiver').textContent,
+        message: document.getElementById('previewContent').textContent,
+        date: new Date().toLocaleString()
+      };
+
+      // 从localStorage获取现有消息或初始化空数组
+      let messages = [];
+      try {
+        const storedMessages = localStorage.getItem('riizeMessages');
+        messages = storedMessages ? JSON.parse(storedMessages) : [];
+      } catch (error) {
+        console.error('Error parsing messages:', error);
+        messages = [];
+      }
+
+      // 添加新消息
+      messages.push(messageData);
+
+      // 存储回localStorage
+      try {
+        localStorage.setItem('riizeMessages', JSON.stringify(messages));
+      } catch (error) {
+        console.error('Error saving messages:', error);
+        alert('Failed to save your message. Please try again.');
+        return;
+      }
+
+      // 显示感谢信息
+      document.getElementById('previewArea').style.display = 'none';
+      document.getElementById('thankYou').style.display = 'block';
+
+    }
+
+    // 编辑消息函数
+    function editMessage() {
+      // 切换显示
+      document.getElementById('messageForm').style.display = 'block';
+      document.getElementById('previewArea').style.display = 'none';
+      document.getElementById('thankYou').style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>
